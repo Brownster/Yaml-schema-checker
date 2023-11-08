@@ -1,0 +1,16 @@
+# exporter_blackbox_schema.yaml
+type: map
+mapping:
+  ".*":  # This regex allows any key name for the top-level entries
+    type: map
+    mapping:
+      ip_address:
+        type: str
+        pattern: '^\d{1,3}(\.\d{1,3}){3}$'  # Basic pattern for IPv4 addresses
+      module:
+        type: str
+      location:
+        type: str
+      country:
+        type: str
+        pattern: '^[A-Z]{2}$'  # Basic pattern for country codes (2 uppercase letters)
